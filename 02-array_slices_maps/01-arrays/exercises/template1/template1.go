@@ -11,15 +11,22 @@
 package main
 
 // Add imports.
+import "fmt"
 
 // main is the entry point for the application.
 func main() {
 	// Declare an array of 5 strings set to its zero value.
+	var strings [5]string
 
 	// Declare an array of 5 strings and pre-populate it with names.
+	strings2 := [5]string{"Foo", "Bar", "FooBar", "Blah", "Blew"}
 
 	// Assign the populated array to the array of zero values.
+	strings = strings2
 
 	// Iterate over the first array declared.
 	// Display the string value and address of each element.
+	for _, s := range strings {
+		fmt.Println(s, &s)
+	}
 }

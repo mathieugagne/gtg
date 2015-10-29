@@ -9,22 +9,31 @@
 package main
 
 // Add imports.
+import "fmt"
 
 // Declare a type named user.
+type user struct {
+	name string
+}
 
 // Create a function that changes the value of one of the user fields.
-func funcName( /* add pointer parameter, add value parameter */ ) {
-	// Use the pointer to change the value that the
-	// pointer points to.
+func setName(u *user, newName string) {
+	u.name = newName
 }
 
 // main is the entry point for the application.
 func main() {
 	// Create a variable of type user and initialize each field.
+	myUser := user{
+		name: "Mathieu",
+	}
 
 	// Display the value of the variable.
+	fmt.Println("My Name:\t", myUser.name)
 
 	// Share the variable with the function you declared above.
+	setName(&myUser, "Khaled")
 
 	// Display the value of the variable.
+	fmt.Println("My new name:\t", myUser.name)
 }

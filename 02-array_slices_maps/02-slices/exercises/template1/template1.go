@@ -13,20 +13,34 @@
 package main
 
 // Add imports.
+import "fmt"
 
 // main is the entry point for the application.
 func main() {
 	// Declare a nil slice of integers.
+	var slice []int
 
 	// Appends numbers to the slice.
+	for i, _ := range [5]int{} {
+		slice = append(slice, i)
+	}
 
 	// Display each value in the slice.
+	for _, num := range slice {
+		fmt.Println(num)
+	}
 
 	// Declare a slice of strings and populate the slice with names.
+	slice2 := []string{"Mathieu", "John", "Khaled"}
 
 	// Display each index position and slice value.
+	for i, name := range slice2 {
+		fmt.Printf("Position %v = %v\n", i, name)
+	}
 
 	// // Take a slice of index 1 and 2 of the slice of strings.
-
 	// Display each index position and slice values for the new slice.
+	for i, name := range slice2[1:3] {
+		fmt.Printf("Position %v = %v\n", i, name)
+	}
 }

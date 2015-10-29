@@ -10,18 +10,40 @@
 package main
 
 // Add imports.
+import "fmt"
 
 // Declare a struct that represents a ball player.
 // Include field called name, atBats and hits.
+type player struct {
+	name   string
+	atBats int
+	hits   int
+}
 
 // Declare a method that calculates the batting average for a player.
-func ( /* receiver */ ) average() /* return type */ {
+func (p player) average() float64 {
+	return float64(p.hits) / float64(p.atBats)
 }
 
 // main is the entry point for the application.
 func main() {
 	// Create a slice of players and populate each player
 	// with field values.
+	players := []player{
+		player{
+			name:   "Mathieu",
+			hits:   5,
+			atBats: 10,
+		},
+		player{
+			name:   "Smith",
+			hits:   3,
+			atBats: 7,
+		},
+	}
 
 	// Display the batting average for each player in the slice.
+	for _, p := range players {
+		fmt.Println(p.name, p.average())
+	}
 }

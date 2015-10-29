@@ -16,35 +16,54 @@
 package main
 
 // Add imports.
+import "fmt"
 
 // Declare the speaker interface with a single method called sayHello.
+type speaker interface {
+	sayHello()
+}
 
 // Declare an empty struct type named english.
+type english struct{}
 
 // Declare a method named sayHello for the english type
 // using a value receiver. "Hello World"
+func (e english) sayHello() {
+	fmt.Println("Hello World")
+}
 
 // Declare an empty struct type named chinese.
+type chinese struct{}
 
 // Declare a method named sayHello for the chinese type
 // using a value receiver. "你好世界"
+func (e chinese) sayHello() {
+	fmt.Println("你好世界")
+}
 
 // sayHello accepts values of the speaker type.
-func sayHello( /* Declare parameter */ ) {
-	// Call the sayHello() method from the speaker parameter.
+func sayHello(s speaker) {
+	s.sayHello()
 }
 
 // main is the entry point for the application.
 func main() {
 	// Declare a variable of the speaker type set to its zero value.
+	var mySpeaker speaker
 
 	// Declare a variable of type english and assign it to
 	// the speaker variable.
 	// Call the sayHello() method from the speaker variable.
+	var englishSpeaker english
+	mySpeaker = englishSpeaker
+	mySpeaker.sayHello()
 
 	// Declare a variable of type chinese and assign it to
 	// the speaker variable.
 	// Call the sayHello() method from the speaker variable.
+	var chineseSpeaker chinese
+	mySpeaker = chineseSpeaker
+	mySpeaker.sayHello()
 
 	// Call the sayHello function passing each concrete type.
 }

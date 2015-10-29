@@ -6,10 +6,25 @@ package toy
 
 // Declare a struct type named Toy with four fields. Name string,
 // Weight int, onHand int and sold int.
+type Toy struct {
+	Name   string
+	Weight int
+	onHand int
+	sold   int
+}
 
 // Declare a function named New that accepts values for the
 // exported fields. Return a pointer of type Toy that is initialized
 // with the parameters.
+func (t *Toy) New(name string, weight int, onHand int, sold int) *Toy {
+	myToy := Toy{
+		Name:   name,
+		Weight: weight,
+		onHand: onHand,
+		sold:   sold,
+	}
+	return &myToy
+}
 
 // Declare a method named OnHand with a pointer receiver that
 // returns the current on hand count.
